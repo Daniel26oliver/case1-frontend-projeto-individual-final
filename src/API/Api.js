@@ -1,5 +1,5 @@
 const Api = () => {
-  const url = '';
+  const url = 'https://case1-frontend-projeto-individual-final.onrender.com';
 
   return {
     FILMES_GET() {
