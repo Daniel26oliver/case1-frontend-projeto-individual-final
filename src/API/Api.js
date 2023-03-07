@@ -1,11 +1,9 @@
 const Api = () => {
-  const url = '';
-
-  return {
-    FILMES_GET() {
+ 
+    LIVRO_GET() {
       return fetch(`${url}/livro`);
     },
-    FILME_POST(titulo, genero, categoria) {
+    LIVRO_POST(titulo, genero, categoria) {
       return fetch(`${url}/livro`, {
         method: 'POST',
         headers: {
@@ -18,7 +16,7 @@ const Api = () => {
         }),
       }).then((res) => console.log(res.status));
     },
-    FILME_PUT(titulo, genero, categoria, id) {
+    LIVRO_PUT(titulo, genero, categoria, id) {
       return fetch(`${url}/livro`, {
         method: 'PUT',
         headers: {
@@ -32,7 +30,7 @@ const Api = () => {
         }),
       }).then((res) => console.log(res.status));
     },
-    FILME_DELETE(id) {
+    LIVRO_DELETE(id) {
       return fetch(`${url}/livro`, {
         method: 'DELETE',
         headers: {
@@ -43,7 +41,7 @@ const Api = () => {
         }),
       }).then((res) => console.log(res.status));
     },
-  };
+  
 };
 
 export default Api;
