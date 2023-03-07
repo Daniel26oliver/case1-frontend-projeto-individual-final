@@ -26,7 +26,7 @@ const UpdateModal = ({
           selectedContent.id
         );
         setReload(!reload);
-        toast.success('Filme atualizado com sucesso!');
+        toast.success('Livro atualizado com sucesso!');
       } catch (err) {
         console.log(err.message);
         toast.error('Um erro ocorreu, tente novamente');
@@ -38,7 +38,7 @@ const UpdateModal = ({
         setGenero('');
       }
     } else {
-      toast.warn('Complete todos os dados para atualizar um filme');
+      toast.warn('Complete todos os dados para atualizar um livro');
     }
   };
 
