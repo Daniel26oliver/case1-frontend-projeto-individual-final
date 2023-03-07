@@ -50,7 +50,7 @@ const UpdateModal = ({
       <Modal show={isModalOpen}>
         <Form onSubmit={handleSubmit}>
           <Modal.Header closeButton onClick={handleClose}>
-            <Modal.Title>Atualizar Filme</Modal.Title>
+            <Modal.Title>Atualizar Livro</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
