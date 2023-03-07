@@ -43,9 +43,9 @@ const NovoFilme = ({ reload, setReload }) => {
       </Form.Group>
 
       <Form.Group controlId="duracao">
-        <Form.Label>Duração (em minutos)</Form.Label>
+        <Form.Label>Categoria</Form.Label>
         <Form.Control
-          type="number"
+          type="text"
           value={duracao}
           onChange={({ target }) => setDuracao(target.value)}
         />
