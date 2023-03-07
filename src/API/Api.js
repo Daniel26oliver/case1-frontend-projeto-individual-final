@@ -1,12 +1,11 @@
 const Api = () => {
   const url = 'https://lista-filmes.onrender.com';
-  
+
   return {
- 
     FILMES_GET() {
       return fetch(`${url}/filmes`);
     },
-    LIVRO_POST(titulo, genero, categoria) {
+    FILME_POST(titulo, duracao, genero) {
       return fetch(`${url}/filme`, {
         method: 'POST',
         headers: {
@@ -14,12 +13,12 @@ const Api = () => {
         },
         body: JSON.stringify({
           titulo,
+          duracao,
           genero,
-          categoria,
         }),
       }).then((res) => console.log(res.status));
     },
-    LIVRO_PUT(titulo, genero, categoria, id) {
+    FILME_PUT(titulo, duracao, genero, id) {
       return fetch(`${url}/filme`, {
         method: 'PUT',
         headers: {
@@ -27,13 +26,13 @@ const Api = () => {
         },
         body: JSON.stringify({
           titulo,
+          duracao,
           genero,
-          categoria,
           id,
         }),
       }).then((res) => console.log(res.status));
     },
-    LIVRO_DELETE(id) {
+    FILME_DELETE(id) {
       return fetch(`${url}/filme`, {
         method: 'DELETE',
         headers: {
@@ -43,7 +42,7 @@ const Api = () => {
           id,
         }),
       }).then((res) => console.log(res.status));
-   },
+    },
   };
 };
 
