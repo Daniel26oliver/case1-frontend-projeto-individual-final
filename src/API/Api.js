@@ -3,8 +3,8 @@ const Api = () => {
   
   return {
  
-    LIVRO_GET() {
-      return fetch(`${url}/filme`);
+    FILMES_GET() {
+      return fetch(`${url}/filmes`);
     },
     LIVRO_POST(titulo, genero, categoria) {
       return fetch(`${url}/filme`, {
