@@ -14,8 +14,8 @@ const Tabela = ({ itens, reload, setReload }) => {
     setIsUpdateModalOpen(true);
     setSelectedContent({
       titulo: item.titulo,
-      duracao: item.duracao,
       genero: item.genero,
+      categoria: item.categoria,
       id: item.id,
     });
   };
@@ -43,8 +43,8 @@ const Tabela = ({ itens, reload, setReload }) => {
         <thead>
           <tr>
             <th>Título</th>
-            <th>Duração</th>
             <th>Gênero</th>
+            <th>Categoria</th>
             <th></th>
             <th></th>
           </tr>
@@ -55,8 +55,8 @@ const Tabela = ({ itens, reload, setReload }) => {
             itens.map((item) => (
               <tr key={item.id}>
                 <td className="titulo">{item.titulo}</td>
-                <td className="duracao">{item.duracao} min</td>
-                <td className="genero">{item.genero}</td>
+                <td className="genero">{item.genero} min</td>
+                <td className="categoria">{item.categoria}</td>
                 <td align="center">
                   <FaEdit onClick={() => handleShowUpdateModal(item)} />
                 </td>
