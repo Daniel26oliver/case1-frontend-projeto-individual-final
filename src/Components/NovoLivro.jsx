@@ -2,37 +2,37 @@ import React from 'react';
 import Api from '../API/Api';
 import { Form, Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
-import styles from './NovoFilme.module.css';
+import styles from './NovoLivro.module.css';
 
-const NovoFilme = ({ reload, setReload }) => {
+const NovoLivro = ({ reload, setReload }) => {
   const [titulo, setTitulo] = React.useState('');
-  const [duracao, setDuracao] = React.useState('');
   const [genero, setGenero] = React.useState('');
+  const [categoria, setCategoria] = React.useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // console.log('Enviar filme: ', titulo, Number(duracao), genero);
-    if (titulo && duracao && genero) {
+    // console.log('Enviar livro: ', titulo, genero, categoria);
+    if (titulo && genero && categoria) {
       try {
-        await Api().FILME_POST(titulo, Number(duracao), genero);
+        await Api().FILME_POST(titulo, genero, categoria);
         setReload(!reload);
-        toast.success('Filme cadastrado com sucesso!');
+        toast.success('Livro cadastrado com sucesso!');
       } catch (err) {
         console.log(err.message);
         toast.error('Um erro ocorreu, tente novamente');
         throw new Error(err);
       } finally {
         setTitulo('');
-        setDuracao('');
         setGenero('');
+        setCategoria('');
       }
     } else {
-      toast.warn('Complete todos os dados para cadastrar um filme');
+      toast.warn('Complete todos os dados para cadastrar um livro');
     }
   };
 
   return (
-    <Form className={styles.formFilme} onSubmit={handleSubmit}>
+    <Form className={styles.formLivro} onSubmit={handleSubmit}>
       <Form.Group controlId="titulo">
         <Form.Label>Título</Form.Label>
         <Form.Control
@@ -42,21 +42,21 @@ const NovoFilme = ({ reload, setReload }) => {
         />
       </Form.Group>
 
-      <Form.Group controlId="duracao">
-        <Form.Label>Duração (em minutos)</Form.Label>
-        <Form.Control
-          type="number"
-          value={duracao}
-          onChange={({ target }) => setDuracao(target.value)}
-        />
-      </Form.Group>
-
       <Form.Group controlId="genero">
         <Form.Label>Gênero</Form.Label>
         <Form.Control
           type="text"
           value={genero}
           onChange={({ target }) => setGenero(target.value)}
+        />
+      </Form.Group>
+
+      <Form.Group controlId="categoria">
+        <Form.Label>Categoria</Form.Label>
+        <Form.Control
+          type="text"
+          value={categoria}
+          onChange={({ target }) => setCategoria(target.value)}
         />
       </Form.Group>
 
