@@ -1,5 +1,5 @@
 const Api = () => {
-  const url = 'https://lista-filmes.onrender.com';
+  const url = '';
 
   return {
     FILMES_GET() {
