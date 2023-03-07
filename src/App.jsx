@@ -32,7 +32,7 @@ function App() {
   return (
     <>
       <Container>
-        <h1 align="center">Lista de Filmes</h1>
+        <h1 align="center">Lista de Livros</h1>
         <NovoFilme reload={reload} setReload={setReload} />
         <Tabela itens={filmes} reload={reload} setReload={setReload} />
         {loading && <Loading />}
