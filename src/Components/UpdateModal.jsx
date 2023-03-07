@@ -65,10 +65,10 @@ const UpdateModal = ({
             </Form.Group>
 
             <Form.Group controlId="duracao">
-              <Form.Label>Duração</Form.Label>
+              <Form.Label>Categoria</Form.Label>
               <Form.Control
                 placeholder={selectedContent.duracao}
-                type="number"
+                type="text"
                 value={duracao}
                 onChange={({ target }) => setDuracao(target.value)}
               />
