@@ -1,10 +1,13 @@
+const Api = () => {
+  const url = 'https://lista-livros.onrender.com';
 
+  return {
  
     LIVRO_GET() {
-      return fetch(`${url}/livro`);
+      return fetch(`livro`);
     },
     LIVRO_POST(titulo, genero, categoria) {
-      return fetch(`${url}/livro`, {
+      return fetch(`livro`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -17,7 +20,7 @@
       }).then((res) => console.log(res.status));
     },
     LIVRO_PUT(titulo, genero, categoria, id) {
-      return fetch(`${url}/livro`, {
+      return fetch(`livro`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -31,7 +34,7 @@
       }).then((res) => console.log(res.status));
     },
     LIVRO_DELETE(id) {
-      return fetch(`${url}/livro`, {
+      return fetch(`livro`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
