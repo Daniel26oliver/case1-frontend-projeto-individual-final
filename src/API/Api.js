@@ -1,4 +1,4 @@
-const Api {
+
  
     LIVRO_GET() {
       return fetch(`${url}/livro`);
@@ -40,7 +40,6 @@ const Api {
           id,
         }),
       }).then((res) => console.log(res.status));
-    },
   
 };
 
