@@ -12,21 +12,21 @@ const UpdateModal = ({
   setReload,
 }) => {
   const [titulo, setTitulo] = React.useState('');
-  const [duracao, setDuracao] = React.useState('');
   const [genero, setGenero] = React.useState('');
+  const [categoria, setCategoria] = React.useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (titulo && duracao && genero) {
+    if (titulo && genero && categoria) {
       try {
-        await Api().FILME_PUT(
+        await Api().LIVRO_PUT(
           titulo,
-          Number(duracao),
           genero,
+          categoria,
           selectedContent.id
         );
         setReload(!reload);
-        toast.success('Filme atualizado com sucesso!');
+        toast.success('Livro atualizado com sucesso!');
       } catch (err) {
         console.log(err.message);
         toast.error('Um erro ocorreu, tente novamente');
@@ -34,11 +34,11 @@ const UpdateModal = ({
       } finally {
         setModalOpen(false);
         setTitulo('');
-        setDuracao('');
         setGenero('');
+        setCategoria('');
       }
     } else {
-      toast.warn('Complete todos os dados para atualizar um filme');
+      toast.warn('Complete todos os dados para atualizar um livro');
     }
   };
 
@@ -50,7 +50,7 @@ const UpdateModal = ({
       <Modal show={isModalOpen}>
         <Form onSubmit={handleSubmit}>
           <Modal.Header closeButton onClick={handleClose}>
-            <Modal.Title>Atualizar Filme</Modal.Title>
+            <Modal.Title>Atualizar Livro</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
@@ -64,16 +64,6 @@ const UpdateModal = ({
               />
             </Form.Group>
 
-            <Form.Group controlId="duracao">
-              <Form.Label>Duração</Form.Label>
-              <Form.Control
-                placeholder={selectedContent.duracao}
-                type="number"
-                value={duracao}
-                onChange={({ target }) => setDuracao(target.value)}
-              />
-            </Form.Group>
-
             <Form.Group controlId="genero">
               <Form.Label>Gênero</Form.Label>
               <Form.Control
@@ -81,6 +71,16 @@ const UpdateModal = ({
                 type="text"
                 value={genero}
                 onChange={({ target }) => setGenero(target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="categoria">
+              <Form.Label>Categoria</Form.Label>
+              <Form.Control
+                placeholder={selectedContent.categoria}
+                type="text"
+                value={categoria}
+                onChange={({ target }) => setCategoria(target.value)}
               />
             </Form.Group>
           </Modal.Body>
