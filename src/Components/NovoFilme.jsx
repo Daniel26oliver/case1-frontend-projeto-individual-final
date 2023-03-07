@@ -11,12 +11,12 @@ const NovoFilme = ({ reload, setReload }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // console.log('Enviar filme: ', titulo, Number(duracao), genero);
+    // console.log('Enviar livro: ', titulo, categoria, genero);
     if (titulo && duracao && genero) {
       try {
         await Api().FILME_POST(titulo, Number(duracao), genero);
         setReload(!reload);
-        toast.success('Filme cadastrado com sucesso!');
+        toast.success('Livro cadastrado com sucesso!');
       } catch (err) {
         console.log(err.message);
         toast.error('Um erro ocorreu, tente novamente');
