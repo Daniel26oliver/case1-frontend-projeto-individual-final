@@ -1,4 +1,4 @@
-const Api = () => {
+const Api {
  
     LIVRO_GET() {
       return fetch(`${url}/livro`);
