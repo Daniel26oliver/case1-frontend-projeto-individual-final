@@ -43,8 +43,8 @@ const Tabela = ({ itens, reload, setReload }) => {
         <thead>
           <tr>
             <th>Título</th>
-            <th>Duração</th>
             <th>Gênero</th>
+            <th>Categoria</th>
             <th></th>
             <th></th>
           </tr>
