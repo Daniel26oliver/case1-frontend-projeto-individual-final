@@ -43,7 +43,8 @@ const Api = () => {
           id,
         }),
       }).then((res) => console.log(res.status));
-  
+   },
+  };
 };
 
 export default Api;
