@@ -34,7 +34,7 @@ function App() {
       <Container>
         <h1 align="center">Lista de Livros</h1>
         <NovoLivro reload={reload} setReload={setReload} />
-        <Tabela itens={filmes} reload={reload} setReload={setReload} />
+        <Tabela itens={livros} reload={reload} setReload={setReload} />
         {loading && <Loading />}
       </Container>
       <ToastContainer autoClose={3000} position={toast.POSITION.BOTTOM_LEFT} />
