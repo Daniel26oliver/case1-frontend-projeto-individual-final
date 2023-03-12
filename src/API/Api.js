@@ -1,39 +1,39 @@
 const Api = () => {
-  const url = 'https://lista-filmes.onrender.com';
+  const url = 'https://lista-livros.onrender.com';
 
   return {
-    FILMES_GET() {
-      return fetch(`${url}/filmes`);
+    LIVRO_GET() {
+      return fetch(`${url}/livros`);
     },
-    FILME_POST(titulo, duracao, genero) {
-      return fetch(`${url}/filme`, {
+    LIVRO_POST(titulo, duracao, genero) {
+      return fetch(`${url}/livros`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/livros',
         },
         body: JSON.stringify({
           titulo,
-          duracao,
           genero,
+          categoria,
         }),
       }).then((res) => console.log(res.status));
     },
-    FILME_PUT(titulo, duracao, genero, id) {
-      return fetch(`${url}/filme`, {
+    LIVRO_PUT(titulo, genero, categoria, id) {
+      return fetch(`${url}/livro`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           titulo,
-          duracao,
           genero,
+          categoria,
           id,
         }),
       }).then((res) => console.log(res.status));
     },
-    FILME_DELETE(id) {
-      return fetch(`${url}/filme`, {
+    LIVRO_DELETE(id) {
+      return fetch(`${url}/livro`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
