@@ -5,7 +5,7 @@ const Api = () => {
     LIVRO_GET() {
       return fetch(`${url}/livros`);
     },
-    LIVRO_POST(titulo, duracao, genero) {
+    LIVRO_POST(titulo, genero, categoria) {
       return fetch(`${url}/livros`, {
         method: 'POST',
         headers: {
