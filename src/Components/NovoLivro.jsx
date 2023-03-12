@@ -7,7 +7,7 @@ import styles from './NovoLivro.module.css';
 const NovoFilme = ({ reload, setReload }) => {
   const [titulo, setTitulo] = React.useState('');
   const [genero, setGenero] = React.useState('');
-  const [Categoria, setCategoria] = React.useState('');
+  const [categoria, setCategoria] = React.useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
