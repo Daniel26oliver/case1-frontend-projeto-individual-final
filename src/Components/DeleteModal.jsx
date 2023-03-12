@@ -13,9 +13,9 @@ const DeleteModal = ({
 }) => {
   const handleDelete = async () => {
     try {
-      await Api().FILME_DELETE(selectedContent.id);
+      await Api().LIVRO_DELETE(selectedContent.id);
       setReload(!reload);
-      toast.success('Filme excluído com sucesso!');
+      toast.success('Livro excluído com sucesso!');
     } catch (err) {
       console.log(err.message);
       toast.error('Um erro ocorreu, tente novamente');
@@ -32,12 +32,12 @@ const DeleteModal = ({
     >
       <Modal show={isModalOpen}>
         <Modal.Header closeButton onClick={handleClose}>
-          <Modal.Title>Deletar Filme</Modal.Title>
+          <Modal.Title>Deletar Livro</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
           <p>
-            Deseja mesmo deletar o filme "<b>{selectedContent.titulo}</b>"?
+            Deseja mesmo deletar o livro "<b>{selectedContent.titulo}</b>"?
           </p>
         </Modal.Body>
 
