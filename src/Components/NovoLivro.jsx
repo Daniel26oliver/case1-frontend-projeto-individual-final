@@ -2,19 +2,19 @@ import React from 'react';
 import Api from '../API/Api';
 import { Form, Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
-import styles from './NovoFilme.module.css';
+import styles from './NovoLivro.module.css';
 
 const NovoFilme = ({ reload, setReload }) => {
   const [titulo, setTitulo] = React.useState('');
-  const [duracao, setDuracao] = React.useState('');
   const [genero, setGenero] = React.useState('');
+  const [Categoria, setCategoria] = React.useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // console.log('Enviar livro: ', titulo, categoria, genero);
-    if (titulo && duracao && genero) {
+    
+    if (titulo && genero && categoria) {
       try {
-        await Api().FILME_POST(titulo, Number(duracao), genero);
+        await Api().LIVRO_POST(titulo, genero, categoria);
         setReload(!reload);
         toast.success('Livro cadastrado com sucesso!');
       } catch (err) {
@@ -23,11 +23,11 @@ const NovoFilme = ({ reload, setReload }) => {
         throw new Error(err);
       } finally {
         setTitulo('');
-        setDuracao('');
         setGenero('');
+        setCategoria('');
       }
     } else {
-      toast.warn('Complete todos os dados para cadastrar um filme');
+      toast.warn('Complete todos os dados para cadastrar um livro');
     }
   };
 
@@ -67,4 +67,4 @@ const NovoFilme = ({ reload, setReload }) => {
   );
 };
 
-export default NovoFilme;
+export default NovoLivro;
