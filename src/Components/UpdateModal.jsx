@@ -12,17 +12,17 @@ const UpdateModal = ({
   setReload,
 }) => {
   const [titulo, setTitulo] = React.useState('');
-  const [duracao, setDuracao] = React.useState('');
   const [genero, setGenero] = React.useState('');
+  const [categoria, setCategoria] = React.useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (titulo && duracao && genero) {
+    if (titulo && genero && categoria) {
       try {
-        await Api().FILME_PUT(
+        await Api().LIVRO_PUT(
           titulo,
-          Number(duracao),
           genero,
+          categoria,
           selectedContent.id
         );
         setReload(!reload);
@@ -34,8 +34,8 @@ const UpdateModal = ({
       } finally {
         setModalOpen(false);
         setTitulo('');
-        setDuracao('');
         setGenero('');
+        setCategoria('');
       }
     } else {
       toast.warn('Complete todos os dados para atualizar um livro');
@@ -69,8 +69,8 @@ const UpdateModal = ({
               <Form.Control
                 placeholder={selectedContent.duracao}
                 type="text"
-                value={duracao}
-                onChange={({ target }) => setDuracao(target.value)}
+                value={genero}
+                onChange={({ target }) => setGenero(target.value)}
               />
             </Form.Group>
 
@@ -79,8 +79,8 @@ const UpdateModal = ({
               <Form.Control
                 placeholder={selectedContent.genero}
                 type="text"
-                value={genero}
-                onChange={({ target }) => setGenero(target.value)}
+                value={categoria}
+                onChange={({ target }) => setCategoria(target.value)}
               />
             </Form.Group>
           </Modal.Body>
